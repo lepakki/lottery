@@ -60,6 +60,17 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
+        <TextView
+            android:textColor="@color/dx_textcolor"
+            android:id="@+id/about_dev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="27dp"
+            android:layout_toEndOf="@+id/lottery_button"
+            android:text="(c) Wildman"
+            android:gravity="bottom|right"/>
+
     </RelativeLayout>
 
     <android.support.design.widget.BottomNavigationView
