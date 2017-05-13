@@ -5,7 +5,10 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Created by Capitano on 12.5.2017.
@@ -14,35 +17,19 @@ import java.util.Set;
 public class LottoArvonta {
 
 
-
-    static String generateRow(){
-        ArrayList<Integer> rivi3 = new ArrayList<>();
-        Set<Integer> rivi2 = new HashSet<>();
-        int[] rivi = new int[7];
+    static String generateRow() {
+        SortedSet<Integer> rivi2 = new TreeSet<>();
         StringBuilder stringBuilder = new StringBuilder(232);
 
-        for(int i = 0; i < rivi.length; i++){
-            rivi2.add((int)(Math.random() * 40) + 1);
-            //rivi[i] = (int)(Math.random() * 40) + 1;
+        while (rivi2.size() < 7) {
+            rivi2.add((int) (Math.random() * 40) + 1);
         }
 
-        for(int g : rivi2){
-            rivi3.add(rivi2.iterator().next());
-        }
+        //rivi2.toArray();
+        //rivi2.toString();
 
-        Arrays.sort(rivi);
+        stringBuilder.append(rivi2.toString());
 
-        for(int f = 0; f < rivi.length; f++){
-            stringBuilder.append(Integer.toString(rivi[f])+" ");
-
-        }
-
-
-
-        /*for(int i = 0; i <= rivi.length; i++){
-            int j = (int)Math.ceil(Math.random() * 40);
-            rivistring += Integer.toString(j);
-        }*/
         return stringBuilder.toString();
     }
 }
