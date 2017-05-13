@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button lotteryMinusButton;
     private Button lotteryPlusButton;
     private int rowCount;
-
+    private volatile int selection;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -25,13 +25,16 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    lotteryRows.setText(R.string.title_home);
+                    lotteryRows.setText(R.string.lottery_lotto);
+                    selection = 1;
                     return true;
                 case R.id.navigation_dashboard:
-                    lotteryRows.setText(R.string.title_dashboard);
+                    lotteryRows.setText(R.string.lottery_eurojackpot);
+                    selection = 2;
                     return true;
                 case R.id.navigation_notifications:
-                    lotteryRows.setText(R.string.title_notifications);
+                    lotteryRows.setText(R.string.lottery_viikinki);
+                    selection = 3;
                     return true;
             }
             return false;
@@ -45,13 +48,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rowCount = 1;
+        selection = 1;
 
         lotteryRows = (TextView) findViewById(R.id.message);
         lotteryButton = (Button) findViewById(R.id.lottery_button);
 
         lotteryButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                lotteryRows.setText(LottoArvonta.generateRow(rowCount));
+                lotteryRows.setText(LottoArvonta.generateRow(selection, rowCount));
             }
         });
 

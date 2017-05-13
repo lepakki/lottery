@@ -16,26 +16,48 @@ import java.util.TreeSet;
 
 public class LottoArvonta {
 
-
-    static String generateRow(int count) {
+    static String generateRow(int selection, int count) {
 
         StringBuilder stringBuilder = new StringBuilder(232);
 
-        for (int spartacus = 0; spartacus < count; spartacus++) {
-
-            SortedSet<Integer> rivi = new TreeSet<>();
-
-
-            while (rivi.size() < 7) {
-                rivi.add((int) (Math.random() * 40) + 1);
-            }
-
-            //rivi2.toArray();
-            //rivi2.toString();
-
-            stringBuilder.append(rivi.toString() + '\n');
-
+        switch (selection) {
+            case 1:
+                //Lotto 7 (1-40)
+                for (int spartacus = 0; spartacus < count; spartacus++) {
+                    SortedSet<Integer> rivi = new TreeSet<>();
+                    while (rivi.size() < 7) {
+                        rivi.add((int) (Math.random() * 40) + 1);
+                    }
+                    stringBuilder.append(rivi.toString() + '\n');
+                }
+                return stringBuilder.toString();
+            case 2:
+                //Eurojackpot 5 + 2 (1-50;1-10)
+                for (int spartacus = 0; spartacus < count; spartacus++) {
+                    SortedSet<Integer> rivi = new TreeSet<>();
+                    SortedSet<Integer> star = new TreeSet<>();
+                    while (rivi.size() < 5) {
+                        rivi.add((int) (Math.random() * 50) + 1);
+                    }
+                    while (star.size() < 2) {
+                        star.add((int) (Math.random() * 10) + 1);
+                    }
+                    stringBuilder.append(rivi.toString() + " : " + star.toString() + '\n');
+                }
+                return stringBuilder.toString();
+            case 3:
+                //Viking Lotto 6 (1-48)
+                for (int spartacus = 0; spartacus < count; spartacus++) {
+                    SortedSet<Integer> rivi = new TreeSet<>();
+                    while (rivi.size() < 6) {
+                        rivi.add((int) (Math.random() * 48) + 1);
+                    }
+                    stringBuilder.append(rivi.toString() + '\n');
+                }
+                return stringBuilder.toString();
+            default:
+                break;
         }
-        return stringBuilder.toString();
+        return "";
     }
 }
