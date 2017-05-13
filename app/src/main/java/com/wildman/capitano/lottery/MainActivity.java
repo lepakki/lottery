@@ -11,8 +11,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-    Button button01;
+    private TextView lotteryRows;
+    private Button lotteryButton;
+    private Button lotteryMinusButton;
+    private Button lotteryPlusButton;
+    private int rowCount;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -22,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    lotteryRows.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    lotteryRows.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    lotteryRows.setText(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -41,12 +44,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        button01 = (Button) findViewById(R.id.button);
+        rowCount = 1;
 
-        button01.setOnClickListener(new View.OnClickListener() {
+        lotteryRows = (TextView) findViewById(R.id.message);
+        lotteryButton = (Button) findViewById(R.id.lottery_button);
+
+        lotteryButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                mTextMessage.setText(LottoArvonta.generateRow());
+                lotteryRows.setText(LottoArvonta.generateRow(rowCount));
+            }
+        });
+
+        lotteryMinusButton = (Button) findViewById(R.id.button_minus_row);
+
+        lotteryMinusButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                if(rowCount >= 2) {
+                    rowCount--;
+                    lotteryButton.setText("Arvo " + Integer.toString(rowCount));
+                }
+            }
+        });
+
+        lotteryPlusButton = (Button) findViewById(R.id.button_plus_row);
+
+        lotteryPlusButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                if(rowCount <= 9) {
+                    rowCount++;
+                    lotteryButton.setText("Arvo " + Integer.toString(rowCount));
+                }
             }
         });
 

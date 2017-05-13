@@ -17,19 +17,25 @@ import java.util.TreeSet;
 public class LottoArvonta {
 
 
-    static String generateRow() {
-        SortedSet<Integer> rivi2 = new TreeSet<>();
+    static String generateRow(int count) {
+
         StringBuilder stringBuilder = new StringBuilder(232);
 
-        while (rivi2.size() < 7) {
-            rivi2.add((int) (Math.random() * 40) + 1);
+        for (int spartacus = 0; spartacus < count; spartacus++) {
+
+            SortedSet<Integer> rivi = new TreeSet<>();
+
+
+            while (rivi.size() < 7) {
+                rivi.add((int) (Math.random() * 40) + 1);
+            }
+
+            //rivi2.toArray();
+            //rivi2.toString();
+
+            stringBuilder.append(rivi.toString() + '\n');
+
         }
-
-        //rivi2.toArray();
-        //rivi2.toString();
-
-        stringBuilder.append(rivi2.toString());
-
         return stringBuilder.toString();
     }
 }
