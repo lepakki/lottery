@@ -68,7 +68,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="27dp"
             android:layout_toEndOf="@+id/lottery_button"
-            android:text="(c) Wildman"
+            android:text="@string/copyright_text"
             android:gravity="bottom|right"/>
 
     </RelativeLayout>

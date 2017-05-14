@@ -6,4 +6,5 @@
     <string name="lottery_button_text">1 RIVI</string>
     <string name="plus_button_text">+</string>
     <string name="minus_button_text">-</string>
+    <string name="copyright_text">(c) Wildman [v. 1.0.0]</string>
 </resources>
