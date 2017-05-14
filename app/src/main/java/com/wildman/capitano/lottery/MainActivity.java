@@ -65,7 +65,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(rowCount >= 2) {
                     rowCount--;
-                    lotteryButton.setText("Arvo " + Integer.toString(rowCount));
+                    if(rowCount == 1){
+                        lotteryButton.setText(Integer.toString(rowCount) + " RIVI");
+                    } else {
+                        lotteryButton.setText(Integer.toString(rowCount) + " RIVIÄ");
+                    }
+
                 }
             }
         });
@@ -76,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(rowCount <= 9) {
                     rowCount++;
-                    lotteryButton.setText("Arvo " + Integer.toString(rowCount));
+                    lotteryButton.setText(Integer.toString(rowCount) + " RIVIÄ");
                 }
             }
         });
