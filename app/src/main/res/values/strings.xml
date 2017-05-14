@@ -4,4 +4,6 @@
     <string name="lottery_eurojackpot">Eurojackpot</string>
     <string name="lottery_viikinki">Viking Lotto</string>
     <string name="lottery_button_text">1 RIVI</string>
+    <string name="plus_button_text">+</string>
+    <string name="minus_button_text">-</string>
 </resources>

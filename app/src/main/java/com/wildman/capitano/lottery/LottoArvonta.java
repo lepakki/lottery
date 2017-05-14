@@ -28,7 +28,7 @@ public class LottoArvonta {
                     while (rivi.size() < 7) {
                         rivi.add((int) (Math.random() * 40) + 1);
                     }
-                    stringBuilder.append(rivi.toString() + '\n');
+                    stringBuilder.append(rivi.toString() + '\n' + '\n');
                 }
                 return stringBuilder.toString();
             case 2:
@@ -42,7 +42,7 @@ public class LottoArvonta {
                     while (star.size() < 2) {
                         star.add((int) (Math.random() * 10) + 1);
                     }
-                    stringBuilder.append(rivi.toString() + " : " + star.toString() + '\n');
+                    stringBuilder.append(rivi.toString() + " : " + star.toString() + '\n' + '\n');
                 }
                 return stringBuilder.toString();
             case 3:
@@ -52,7 +52,7 @@ public class LottoArvonta {
                     while (rivi.size() < 6) {
                         rivi.add((int) (Math.random() * 48) + 1);
                     }
-                    stringBuilder.append(rivi.toString() + '\n');
+                    stringBuilder.append(rivi.toString() + '\n' + '\n');
                 }
                 return stringBuilder.toString();
             default:
